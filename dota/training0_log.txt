@@ -1,0 +1,181 @@
+INFO:root:
+INFO:root:================== Gin configuration start =======================
+INFO:root:################################################ YoloV3 Adversarial Attack Generator ################################################
+
+# # ------------ Run Command Options ------------
+run_script.execute = 'train'                                                                           # Main logic command: choose from ('train','visualize','evaluate','optimize')
+run_script.device = 'cpu'                                                                                  # Device to run on ('cpu' or 'cuda:0' 'cuda')
+run_script.coco_names = 'yolov3/data/coco.names'                                                           # Path to the coco names file (string)
+run_script.log_file_name = 'training0_log.txt'                                                             # Logging file to capture console logging (string)
+#run_script.log_dir = 'logs'                                                                               # Directory for log files (string)
+run_script.run_name = 'training0'                                                                          # Run name where results are saved (string)
+run_script.height = 175                                                                                    # Desired height of all imagery (int)
+run_script.width = 300                                                                                     # Desired width of all imagery (int)
+run_script.offset = 25                                                                                     # Desired distance between the bounding box and the edge of the patch (int)
+
+# ------------ Evaluation Command Options ------------
+evaluate.command = 'random'                                                                                # Logic command for evaluation: choose from ('single', 'all','random','noise')
+evaluate.image_path = 'data/'                                                                              # Path to data folder of images (string)
+evaluate.numpy_patch_path = 'results/full_dataset/numpy_files/final_model.npy'                             # Path to delta to load for evaluation (string)
+evaluate.givenX = 0                                                                                        # Desired X to evaluate the patch at if using 'single', use wisely as user can specify overlap with the object box (int)
+evaluate.givenY = 0                                                                                        # Desired Y to evaluate the patch at if using 'single', use wisely as user can specify overlap with the object box (int)
+evaluate.step_size = 100                                                                                   # The desired step size when using 'all' (int)
+
+# ------------ Visualization Command Options ------------
+visualize.image_path = 'data/'                                                                             # Path to data folder of images (string)
+visualize.numpy_patch_path = 'results/full_dataset/numpy_files/final_model.npy'                            # Path to delta to load for visualization (string)
+visualize.save_plots = True                                                                                # Flag to save plots from visualization (boolean)
+
+# ------------ Optimize Command Options ------------
+optimize.learning_rates = [1,2]                                                                            # List of learning rates to try (list of ints)
+optimize.generations_choices = [1,2]                                                                       # List of number of generations to try (list of ints)
+
+# ------------ Attack Generation Command Options ------------
+generate_attack.alpha = 0.9                                                                                # Momentum (float)
+generate_attack.epochs = 5000                                                                              # Number of Epochs to train for (int)
+generate_attack.lr = 15                                                                                    # Learning rate (int)
+generate_attack.lr_scale = 0.80                                                                            # Scale learning rate by this amount every 'lr_length' epochs (float)
+generate_attack.lr_length = 40                                                                             # Drop learning rate every lr_length epochs (int)
+generate_attack.patience  = 100                                                                            # Give up if we haven't reduced confidence in patience epochs (int)
+generate_attack.load = False                                                                               # Option to restart training from previously saved files (boolean)
+generate_attack.load_path = 'results/full_dataset/numpy_files/final_model.npy'                             # Path to a saved .npy file with associated state dictionary if load = True  (string)
+generate_attack.randomize = True                                                                           # Option to randomize and use EOT to average gradients (boolean)
+generate_attack.givenX = 100                                                                               # Specific X to train a patch if randomize = False (int)
+generate_attack.givenY = 33                                                                                # Specific Y to train a patch if randomize = False (int)
+generate_attack.num_random_generations = 15                                                                # Number of random generations to average per epoch when using randomize = True (int)
+generate_attack.image_path = 'data/'                                                                       # Path to data folder of images (string)
+generate_attack.patch_width = 100                                                                          # Desired patch width (int)
+generate_attack.patch_height = 100                                                                         # Desired patch height (int)
+
+INFO:root:================== Gin configuration end =======================
+INFO:root:
+INFO:root:--------------------------------------------------------------------------------------------
+INFO:root:------------------- Attack Generation started: 2021.07.06:16.53.32   -----------------------
+INFO:root:Running on cpu with seed: 152 and randomize: True
+INFO:root:Found a small-vehicle with 0.9196733 % certainty on initial image load of image 1
+INFO:root:Found a small-vehicle with 0.7861983 % certainty on initial image load of image 2
+INFO:root:Found a small-vehicle with 0.9813024 % certainty on initial image load of image 3
+INFO:root:Found a small-vehicle with 0.8588570 % certainty on initial image load of image 4
+INFO:root:Found a small-vehicle with 0.9661200 % certainty on initial image load of image 5
+INFO:root:Found a small-vehicle with 0.8801017 % certainty on initial image load of image 6
+INFO:root:Found a small-vehicle with 0.9829003 % certainty on initial image load of image 7
+INFO:root:Found a small-vehicle with 0.9757078 % certainty on initial image load of image 8
+INFO:root:Found a small-vehicle with 0.9904345 % certainty on initial image load of image 9
+INFO:root:Found a small-vehicle with 0.9714794 % certainty on initial image load of image 10
+INFO:root:Calculated a possible 1875 random positions for patch placement on image 1
+INFO:root:Calculated a possible 3750 random positions for patch placement on image 2
+INFO:root:Calculated a possible 3075 random positions for patch placement on image 3
+INFO:root:Calculated a possible 3000 random positions for patch placement on image 4
+INFO:root:Calculated a possible 1875 random positions for patch placement on image 5
+INFO:root:Calculated a possible 1500 random positions for patch placement on image 6
+INFO:root:Calculated a possible 1875 random positions for patch placement on image 7
+INFO:root:Calculated a possible 3525 random positions for patch placement on image 8
+INFO:root:Calculated a possible 1875 random positions for patch placement on image 9
+INFO:root:Calculated a possible 1875 random positions for patch placement on image 10
+INFO:root:
+INFO:root:================== Gin configuration start =======================
+INFO:root:################################################ YoloV3 Adversarial Attack Generator ################################################
+
+# # ------------ Run Command Options ------------
+run_script.execute = 'train'                                                                           # Main logic command: choose from ('train','visualize','evaluate','optimize')
+run_script.device = 'cpu'                                                                                  # Device to run on ('cpu' or 'cuda:0' 'cuda')
+run_script.coco_names = 'yolov3/data/coco.names'                                                           # Path to the coco names file (string)
+run_script.log_file_name = 'training0_log.txt'                                                             # Logging file to capture console logging (string)
+#run_script.log_dir = 'logs'                                                                               # Directory for log files (string)
+run_script.run_name = 'training0'                                                                          # Run name where results are saved (string)
+run_script.height = 500                                                                                    # Desired height of all imagery (int)
+run_script.width = 500                                                                                     # Desired width of all imagery (int)
+run_script.offset = 25                                                                                     # Desired distance between the bounding box and the edge of the patch (int)
+
+# ------------ Evaluation Command Options ------------
+evaluate.command = 'random'                                                                                # Logic command for evaluation: choose from ('single', 'all','random','noise')
+evaluate.image_path = 'data/'                                                                              # Path to data folder of images (string)
+evaluate.numpy_patch_path = 'results/full_dataset/numpy_files/final_model.npy'                             # Path to delta to load for evaluation (string)
+evaluate.givenX = 0                                                                                        # Desired X to evaluate the patch at if using 'single', use wisely as user can specify overlap with the object box (int)
+evaluate.givenY = 0                                                                                        # Desired Y to evaluate the patch at if using 'single', use wisely as user can specify overlap with the object box (int)
+evaluate.step_size = 100                                                                                   # The desired step size when using 'all' (int)
+
+# ------------ Visualization Command Options ------------
+visualize.image_path = 'data/'                                                                             # Path to data folder of images (string)
+visualize.numpy_patch_path = 'results/full_dataset/numpy_files/final_model.npy'                            # Path to delta to load for visualization (string)
+visualize.save_plots = True                                                                                # Flag to save plots from visualization (boolean)
+
+# ------------ Optimize Command Options ------------
+optimize.learning_rates = [1,2]                                                                            # List of learning rates to try (list of ints)
+optimize.generations_choices = [1,2]                                                                       # List of number of generations to try (list of ints)
+
+# ------------ Attack Generation Command Options ------------
+generate_attack.alpha = 0.9                                                                                # Momentum (float)
+generate_attack.epochs = 5000                                                                              # Number of Epochs to train for (int)
+generate_attack.lr = 15                                                                                    # Learning rate (int)
+generate_attack.lr_scale = 0.80                                                                            # Scale learning rate by this amount every 'lr_length' epochs (float)
+generate_attack.lr_length = 40                                                                             # Drop learning rate every lr_length epochs (int)
+generate_attack.patience  = 100                                                                            # Give up if we haven't reduced confidence in patience epochs (int)
+generate_attack.load = False                                                                               # Option to restart training from previously saved files (boolean)
+generate_attack.load_path = 'results/full_dataset/numpy_files/final_model.npy'                             # Path to a saved .npy file with associated state dictionary if load = True  (string)
+generate_attack.randomize = True                                                                           # Option to randomize and use EOT to average gradients (boolean)
+generate_attack.givenX = 100                                                                               # Specific X to train a patch if randomize = False (int)
+generate_attack.givenY = 33                                                                                # Specific Y to train a patch if randomize = False (int)
+generate_attack.num_random_generations = 15                                                                # Number of random generations to average per epoch when using randomize = True (int)
+generate_attack.image_path = 'data/'                                                                       # Path to data folder of images (string)
+generate_attack.patch_width = 10                                                                          # Desired patch width (int)
+generate_attack.patch_height = 10                                                                         # Desired patch height (int)
+
+INFO:root:================== Gin configuration end =======================
+INFO:root:
+INFO:root:--------------------------------------------------------------------------------------------
+INFO:root:------------------- Attack Generation started: 2021.07.06:16.58.01   -----------------------
+INFO:root:Running on cpu with seed: 152 and randomize: True
+INFO:root:Found a small-vehicle with 0.9730399 % certainty on initial image load of image 1
+INFO:root:Found a small-vehicle with 0.7642900 % certainty on initial image load of image 2
+INFO:root:Found a small-vehicle with 0.9935526 % certainty on initial image load of image 3
+INFO:root:Found a small-vehicle with 0.8298389 % certainty on initial image load of image 4
+INFO:root:Found a small-vehicle with 0.9500332 % certainty on initial image load of image 5
+INFO:root:Found a small-vehicle with 0.8875301 % certainty on initial image load of image 6
+INFO:root:Found a small-vehicle with 0.9852648 % certainty on initial image load of image 7
+INFO:root:Found a small-vehicle with 0.9925734 % certainty on initial image load of image 8
+INFO:root:Found a small-vehicle with 0.9896247 % certainty on initial image load of image 9
+INFO:root:Found a small-vehicle with 0.9709842 % certainty on initial image load of image 10
+INFO:root:Calculated a possible 49000 random positions for patch placement on image 1
+INFO:root:Calculated a possible 49000 random positions for patch placement on image 2
+INFO:root:Calculated a possible 49000 random positions for patch placement on image 3
+INFO:root:Calculated a possible 49000 random positions for patch placement on image 4
+INFO:root:Calculated a possible 46550 random positions for patch placement on image 5
+INFO:root:Calculated a possible 49000 random positions for patch placement on image 6
+INFO:root:Calculated a possible 49000 random positions for patch placement on image 7
+INFO:root:Calculated a possible 49000 random positions for patch placement on image 8
+INFO:root:Calculated a possible 49000 random positions for patch placement on image 9
+INFO:root:Calculated a possible 49000 random positions for patch placement on image 10
+INFO:root:Epoch: 0 of 5000:   Loss: +4.1131e-06  Confidence: 0.9337  Best Confidence: 0.9337 at epoch 0
+INFO:root:Epoch: 1 of 5000:   Loss: +5.5918e-05  Confidence: 0.9336  Best Confidence: 0.9336 at epoch 1
+INFO:root:Epoch: 2 of 5000:   Loss: +1.2638e-04  Confidence: 0.9335  Best Confidence: 0.9335 at epoch 2
+INFO:root:Epoch: 3 of 5000:   Loss: +4.3232e-04  Confidence: 0.9332  Best Confidence: 0.9332 at epoch 3
+INFO:root:Epoch: 4 of 5000:   Loss: -1.4059e-04  Confidence: 0.9338  Best Confidence: 0.9332 at epoch 3
+INFO:root:Epoch: 5 of 5000:   Loss: -8.4281e-05  Confidence: 0.9338  Best Confidence: 0.9332 at epoch 3
+INFO:root:Epoch: 6 of 5000:   Loss: -1.6791e-04  Confidence: 0.9338  Best Confidence: 0.9332 at epoch 3
+INFO:root:Epoch: 7 of 5000:   Loss: +8.3039e-04  Confidence: 0.9328  Best Confidence: 0.9328 at epoch 7
+INFO:root:Epoch: 8 of 5000:   Loss: -3.7746e-05  Confidence: 0.9337  Best Confidence: 0.9328 at epoch 7
+INFO:root:Epoch: 9 of 5000:   Loss: +1.2424e-03  Confidence: 0.9324  Best Confidence: 0.9324 at epoch 9
+INFO:root:Epoch: 10 of 5000:   Loss: +1.6090e-03  Confidence: 0.9321  Best Confidence: 0.9321 at epoch 10
+INFO:root:Epoch: 11 of 5000:   Loss: +4.0073e-04  Confidence: 0.9333  Best Confidence: 0.9321 at epoch 10
+INFO:root:Epoch: 12 of 5000:   Loss: +2.6944e-03  Confidence: 0.9310  Best Confidence: 0.9310 at epoch 12
+INFO:root:Epoch: 13 of 5000:   Loss: +1.6262e-03  Confidence: 0.9320  Best Confidence: 0.9310 at epoch 12
+INFO:root:Epoch: 14 of 5000:   Loss: +2.2724e-03  Confidence: 0.9314  Best Confidence: 0.9310 at epoch 12
+INFO:root:Epoch: 15 of 5000:   Loss: +2.1497e-03  Confidence: 0.9315  Best Confidence: 0.9310 at epoch 12
+INFO:root:Epoch: 16 of 5000:   Loss: +2.7992e-03  Confidence: 0.9309  Best Confidence: 0.9309 at epoch 16
+INFO:root:Epoch: 17 of 5000:   Loss: +2.5336e-03  Confidence: 0.9311  Best Confidence: 0.9309 at epoch 16
+INFO:root:Epoch: 18 of 5000:   Loss: +2.4523e-03  Confidence: 0.9312  Best Confidence: 0.9309 at epoch 16
+INFO:root:Epoch: 19 of 5000:   Loss: +2.7950e-03  Confidence: 0.9309  Best Confidence: 0.9309 at epoch 16
+INFO:root:Epoch: 20 of 5000:   Loss: +5.3520e-03  Confidence: 0.9283  Best Confidence: 0.9283 at epoch 20
+INFO:root:Epoch: 21 of 5000:   Loss: +4.5091e-03  Confidence: 0.9292  Best Confidence: 0.9283 at epoch 20
+INFO:root:Epoch: 22 of 5000:   Loss: +7.6656e-03  Confidence: 0.9260  Best Confidence: 0.9260 at epoch 22
+INFO:root:Epoch: 23 of 5000:   Loss: +7.4097e-03  Confidence: 0.9263  Best Confidence: 0.9260 at epoch 22
+INFO:root:Epoch: 24 of 5000:   Loss: +8.5975e-03  Confidence: 0.9251  Best Confidence: 0.9251 at epoch 24
+INFO:root:Epoch: 25 of 5000:   Loss: +3.5493e-03  Confidence: 0.9301  Best Confidence: 0.9251 at epoch 24
+INFO:root:Epoch: 26 of 5000:   Loss: +3.3368e-03  Confidence: 0.9303  Best Confidence: 0.9251 at epoch 24
+INFO:root:Epoch: 27 of 5000:   Loss: +6.3188e-03  Confidence: 0.9274  Best Confidence: 0.9251 at epoch 24
+INFO:root:Epoch: 28 of 5000:   Loss: +9.5914e-03  Confidence: 0.9241  Best Confidence: 0.9241 at epoch 28
+INFO:root:Epoch: 29 of 5000:   Loss: +7.7764e-03  Confidence: 0.9259  Best Confidence: 0.9241 at epoch 28
+INFO:root:Epoch: 30 of 5000:   Loss: +1.0085e-02  Confidence: 0.9236  Best Confidence: 0.9236 at epoch 30
+INFO:root:Epoch: 31 of 5000:   Loss: +5.9672e-03  Confidence: 0.9277  Best Confidence: 0.9236 at epoch 30
+INFO:root:Epoch: 32 of 5000:   Loss: +1.2784e-02  Confidence: 0.9209  Best Confidence: 0.9209 at epoch 32
